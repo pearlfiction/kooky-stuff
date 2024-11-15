@@ -1,0 +1,44 @@
+Test Cases for https://api.apilayer.com/fixer/latest  
+
+1. 1) Verify the GET /latest endpoint returns a 200 status code
+2) Before testing recieve an API key
+3) Send a GET request to /latest;
+Send API key in header 'apikey';
+Receive the API response
+4) The expected HTTP status code 200 OK
+
+2. 1) Verify the GET /latest endpoint with invalid symbol returns a 400 status code
+2) Before testing recieve an API key
+3) Send a GET request to /latest% (add invaid symbol);
+Send API key in header 'apikey';
+Receive the API response
+4) The expected HTTP status code 400 Bad Request
+
+3. 1) Verify the GET /latest endpoint with incorrect API key returns a 401 status code
+2) —
+3) Send a GET request to /latest;
+Send random incorrect API key in header 'apikey';
+Receive the API response
+4) The expected HTTP status code 401 Unauthorized
+
+4. 1) Verify the POST /latest endpoint returns a 403 status code
+2) Before testing recieve an API key
+3) Send a POST request to /latest;
+Send API key in header 'apikey';
+Receive the API response
+4) The expected HTTP status code 403 Forbidden
+
+5. 1) Verify the GET /latest endpoint with wrong url returns a 404 status code
+2) Before testing recieve an API key
+3) Send a GET request to 'https://api.apilayer.com/meowfixer/latest' (add random symbols in url);
+Send API key in header 'apikey';
+Receive the API response
+4) The expected HTTP status code 404 Not f
+
+6. 1) Verify the GET /latest endpoint, exceeding the request rate limit, returns a 429 status code
+2) Before testing recieve an API key
+3) Send a GET request to /latest;
+Send API key in header 'apikey';
+Receive the API response;
+Repeat these steps 100 times;
+4) The expected HTTP status code 200 OK for the first 100 requests and 429 Too Many Requests — for the 101th
